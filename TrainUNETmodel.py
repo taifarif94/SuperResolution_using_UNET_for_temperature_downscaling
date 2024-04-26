@@ -124,7 +124,7 @@ class DataGenerator(keras.utils.Sequence):
         return np.asarray(allSmallImg), np.asarray(allBigImg)
 
     def __len__(self):
-        return (np.ceil(len(self.X_filenames) / float(self.batch_size))).astype(np.int)
+        return int(np.ceil(len(self.X_filenames) / float(self.batch_size)))
 
     def on_epoch_end(self):
         if self.shuffle_index:
